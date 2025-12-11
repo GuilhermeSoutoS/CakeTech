@@ -1,18 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 
 body {
+  height: 100dvh;
+  /* margin-top: 80px; */
   margin: 0;
   padding: 0;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: black;
+ font-family: Ubuntu;
+  background-color: #F9E9E9;
 }
 
 :root {
-  --tamanho-header: 80px;
+  --tamanho-header: 100px;
   --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-footer: 65px;
+  --cor-escura: #82474A;
+  --cor-media: #B8696C;
+  --cor-clara: 
 }
 
 .container {
@@ -22,8 +30,11 @@ body {
 }
 
 .header {
+  position: sticky;
+  top: 0;
+  background-color: #F9E9E9;
+  width: 100%;
   height: var(--tamanho-header);
-  border-bottom: 2px solid #32b9cd;
 }
 
 .header .container {
@@ -33,8 +44,26 @@ body {
 }
 
 .header a {
+  position: relative;
   text-decoration: none;
-  color: #e3b062;
+  color: #82474A;
+  transition: all 0.3s;
+}
+
+.header a::after {
+   content: "";
+   width: 0%;
+   height: 2px;
+   background-color: black;
+   position: absolute;
+   bottom: -2px;
+   left: 50%;
+   transition: 0.3s;
+}
+
+.header a:hover::after {
+   width: 100%;
+   left: 0%;
 }
 
 .agora {
@@ -45,15 +74,21 @@ body {
   width: 300px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: end;
+  gap: 20px;
   list-style: none;
-  color: #e3b062;
+  color: #82474A;
 }
 
-.titulo {
-  color: #32b9cd;
+.logo {
   width: fit-content;
   font-weight: 500;
+  cursor: pointer;
+}
+
+.logo img {
+  width: 200px;
+  height: 130px;
 }
 
 .header h1 {
@@ -64,37 +99,49 @@ body {
 
 .banner {
   height: var(--tamanho-banner);
+  /* margin-top: 10px; */
   color: white;
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
+  background-image: url('../assets/Background/composicao-de-padaria-plana-leigos-com-copyspace.jpg');
   background-size: cover;
 }
 
 .banner .container {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: end;
+  text-align: center;
   height: 100%;
 }
 
-.banner .container p {
-  width: 50%;
+.banner .container h1 {
+  font-family: Signika;
+  width: 40%;
   margin: 0;
   padding: 0;
-  font-size: 36px;
+  font-size: 32px;
+}
+
+.banner .container p {
+  width: 40%;
+  font-size: 16px;
 }
 
 .banner .container span {
-  font-weight: 800;
+  font-weight: bolder;
+  color: #B8696C;
 }
 
 /* MISSÃO VISÃO VALORES */
 
 .social {
-  background-color: #e5e5e5;
+  background-color: #F9E9E9;
   display: flex;
 }
 
 .social .container {
   justify-content: center;
+  padding: 70px;
 }
 
 .box img {
@@ -106,6 +153,7 @@ body {
   justify-content: space-between;
   width: 100%;
   padding: 30px 0;
+  gap: 30px;
 }
 
 .social p {
@@ -114,15 +162,28 @@ body {
 
 .box {
   display: flex;
+  width: 30%;
   flex-direction: column;
   align-items: center;
+}
+
+.box h4 {
+  margin: 0;
+  font-size: 24px;
+  font-family: Signika;
+  color: var(--cor-media);
+}
+
+.box p {
+  font-size: 14px;
+  color: var(--cor-escura);
 }
 
 /* FOOTER */
 
 .footer {
-  background-color: #32b9cd;
-  height: 150px;
+  background-color: #B8696C;
+  height: 75px;
   color: #fff;
   display: flex;
   font-size: 15px;
@@ -140,9 +201,7 @@ body {
 /* LOGIN */
 
 .login {
-  height: var(--tamanho-login);
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
-  background-size: cover;
+  height: 100dvh;
 }
 
 .login .container {
