@@ -1,11 +1,15 @@
 /* pagina mural */
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 body {
+  flex-direction: row;
   margin: 0;
   padding: 0;
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 .label-captura {
@@ -120,7 +124,7 @@ body {
   position: relative;
   top: 0;
   left: 20%;
-  background-color: #161618;
+  background-color: #f9e9e9;
   height: 100vh;
   overflow: auto;
 }
@@ -348,8 +352,10 @@ canvas {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border-right: 3px solid #32b9cd;
-  background-color: #212124;
+  border-right: 3px solid #82474a;
+  background-color: #f9e9e9;
+  gap: 10px;
+  font-family: Signika;
 }
 
 .dash-right {
@@ -364,8 +370,10 @@ canvas {
   overflow: auto;
 }
 
-.header-left h1 {
-  color: #32b9cd;
+.header-left img{
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
 }
 
 .hello {
@@ -375,7 +383,7 @@ canvas {
 }
 
 .hello h3 {
-  color: #e3b062;
+  color: #82474a;
   font-weight: 300;
   font-size: 1.2rem;
 }
@@ -386,24 +394,26 @@ canvas {
 
 .btn-nav {
   width: 40%;
-  color: white;
-  background-color: #e6005a;
+  color: #f9e9e9;
+  background-color: #82474a;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
+  cursor: pointer;
 }
 
 .btn-nav-white {
   width: 40%;
-  background-color: white;
-  border: 3px solid #e6005a;
+  background-color: #f9e9e9;
+  border: 3px solid #b8696c;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
+  cursor: pointer;
 }
 
 .btn-nav-white h3 {
-  color: #e6005a;
+  color: #b8696c;
   padding: 0;
   margin: 0;
 }
@@ -415,11 +425,11 @@ canvas {
 }
 
 .btn-logout {
-  margin: 0;
+  margin-top: 20px;
   padding: 0;
   width: 20%;
-  background-color: #32b9cd;
-  color: white;
+  background-color: #f9e9e9;
+  color: #b8696c;
   border-radius: 10px;
   text-align: center;
   padding: 10px 15px;
