@@ -40,7 +40,7 @@ cd CakeTech
 3. Instale os pacotes:
 
 ```bash
-npm install
+npm i
 ```
 
 4. Execute o projeto:
