@@ -1,7 +1,7 @@
 # 🎂 CakeTech
 
 Bem-vindo ao repositório do projeto **CakeTech**, desenvolvido para entrega do Projeto de encerramento de semestre da **São Paulo Tech School**.
-Este projeto tem como objetivo criar um sistema baseado no projeto **Aquatech** para auxiliar na venda de bolos e na gestão de estoque de padarias, de acordo com a regra de negócio do projeto **CakeTech**.
+Este projeto tem como objetivo criar um sistema baseado no projeto **Aquatech** para auxiliar na venda de produtos e na gestão de estoque de padarias, de acordo com a regra de negócio do projeto **CakeTech**.
 
 ---
 
@@ -40,7 +40,7 @@ cd CakeTech
 3. Instale os pacotes:
 
 ```bash
-npm install
+npm i
 ```
 
 4. Execute o projeto:
@@ -54,23 +54,23 @@ npm start
 ## 👨‍💻 Autores
 
 ### Aurora Carvalho
-**📘 SPTech School**
-**🔗 GitHub:** https://github.com/Aurora-Carvalhoi
+- **📘 SPTech School**
+- **🔗 GitHub:** https://github.com/Aurora-Carvalhoi
 
 ### Guilherme Souto
-**📘 SPTech School**
-**🔗 GitHub:** https://github.com/GuilhermeSoutoS
+- **📘 SPTech School**
+- **🔗 GitHub:** https://github.com/GuilhermeSoutoS
 
 ### Kauan Kadooca
-**📘 SPTech School**
-**🔗 GitHub:** https://github.com/KKadooca-SPTECH
+- **📘 SPTech School**
+- **🔗 GitHub:** https://github.com/KKadooca-SPTECH
 
 ### Luã Chaves
-**📘 SPTech School**
-**🔗 GitHub:** https://github.com/Lua-Chaves-SPT
+- **📘 SPTech School**
+- **🔗 GitHub:** https://github.com/Lua-Chaves-SPT
 
 ### Vinicius Guedes
-**📘 SPTech School**
-**🔗 GitHub:** https://github.com/Vicios579
+- **📘 SPTech School**
+- **🔗 GitHub:** https://github.com/Vicios579
 
 ---

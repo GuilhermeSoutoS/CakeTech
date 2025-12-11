@@ -66,13 +66,11 @@ CREATE TABLE produto (
 	FOREIGN KEY (fk_armazem) REFERENCES armazem(idArmazem)
 );
 
--- ALTER TABLE produto MODIFY COLUMN preco DECIMAL(5,2);
-
 CREATE TABLE medida (
 	idMedida INT PRIMARY KEY AUTO_INCREMENT,
 	fk_produto INT,
-    dht11_umidade DECIMAL(3,2),
-	dht11_temperatura DECIMAL(3,2),
+    dht11_umidade DECIMAL(5,2),
+	dht11_temperatura DECIMAL(5,2),
 	registro DATETIME,
 	FOREIGN KEY (fk_produto) REFERENCES produto(idProduto)
 );
@@ -80,15 +78,15 @@ CREATE TABLE medida (
 CREATE TABLE pedido (
 idPedido INT,
 pk_usuario INT,
-pk_pedido INT,
+pk_produto INT,
 titulo VARCHAR(70),
 hrPedido DATETIME default current_timestamp,
 hrEntrega DATETIME,
 statuss TINYINT(2),
 nomeCliente VARCHAR(45),
 	CONSTRAINT chkStatus CHECK (statuss IN (0,1)),
-    PRIMARY KEY (idPedido,pk_usuario, pk_pedido),
+    PRIMARY KEY (idPedido,pk_usuario, pk_produto),
     FOREIGN KEY (pk_usuario) REFERENCES usuario(idUsuario),
-    FOREIGN KEY (pk_pedido) REFERENCES pedido(idPedido)
+    FOREIGN KEY (pk_produto) REFERENCES produto(idProduto)
 );
 

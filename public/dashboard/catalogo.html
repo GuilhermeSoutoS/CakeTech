@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Produto a ser cadastrado : <input type="text" id="ipt_sabor">
+    <br>
+    Preço do produto: <input type="number" id="ipt_preco">
+    <br>
+    Quantidade do produto: <input type="number" id="ipt_qtd">
+    <br>
+    <button onclick="novoProduto()">Adicionar</button>
+    <button onclick="exibirProduto()">Exibir</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+    var idArmazem = sessionStorage.ID_USUARIO
+    function novoProduto() {
+        var preco = ipt_preco.value
+        var sabor = ipt_sabor.value
+        var qtd = ipt_qtd.value
+        fetch(`/produtos/novoProduto`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                idArmazemServer: idArmazem,
+                precoProdutoServer: preco,
+                saborProdutoServer: sabor,
+                qtdProdutoServer: qtd
+            })
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+                if (resposta.ok) {
+                    console.log('Aq passou')
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro de um novo poroduto";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    }
+
+    function exibirProduto() {
+        fetch(`/produtos/exibirProduto/${idArmazem}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    var msg = ''
+                    for (var i = 0; i < resposta.length; i++) {
+                        var produto = resposta[i]
+                        msg += `Produto: ${produto.Produto} - Quantidade: ${produto.qtdProduto} <br>`
+                    }
+                    div_mensagem.innerHTML = msg
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+</script>

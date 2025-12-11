@@ -27,8 +27,8 @@ function alertar(resposta, idAquario) {
 
     var limites = {
         muito_quente: 23,
-        quente: 22,
-        ideal: 20,
+        quente: 20,
+        ideal: 15,
         frio: 10,
         muito_frio: 5
     };
