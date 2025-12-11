@@ -17,6 +17,11 @@ cnpj CHAR(14),
 codigo_ativacao VARCHAR(50)
 );
 
+INSERT INTO empresa (razao_social,cnpj,codigo_ativacao) VALUES 
+	('Casa dos Doces ltda',29882547000140,'MAP18'),
+    ('Haddock Doces ltda',45238216000128,'HDK23'),
+    ('Pane Dolce ltd',37154250000196,'TKS24');
+
 CREATE TABLE usuario (
 idUsuario INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(50),
@@ -25,6 +30,14 @@ senha VARCHAR(50),
 fk_empresa INT,
 FOREIGN KEY (fk_empresa) REFERENCES empresa(idEmpresa)
 );
+
+INSERT INTO usuario (nome,email,senha,fk_empresa) VALUES
+	('Geraldo Marcelo','geraldo.marcelo@casadoces.com','!Geraldo123',1),
+    ('Marcela Torres','marcela.torres@casadoces.com','!Marcela123',1),
+    ('Rebeca Monteiro','rebeca.monteiro@haddockdoces.com','!Rebeca123',2),
+    ('Jorge Henrique','jorge.henrique@haddockdoces.com','!Jorge123',2),
+    ('Alê Santana','ale.santana@panedolce.com','!Ale123',3),
+    ('Gisele Pontes','gisele.pontes@panedolce.com','!Gisele123',3);
 
 create table armazem (
 /* em nossa regra de negócio, um armazem tem apenas um sensor */
@@ -36,6 +49,13 @@ create table armazem (
 	FOREIGN KEY (fk_empresa) REFERENCES empresa(idEmpresa)
 );
 
+INSERT INTO armazem (fk_empresa,cep,numCep,complemento) VALUES
+    (1,38705354,925,'3º andar'),
+    (2,20260142,255,'Terraço - Torre 1'),
+    (2,20260142,950,''),
+    (3,26088005,12,''),
+    (3,22041030,56,'1º andar'),
+    (3,25675321,19,'');
 
 CREATE TABLE produto (
 	idProduto INT PRIMARY KEY AUTO_INCREMENT,
@@ -48,7 +68,7 @@ CREATE TABLE produto (
 
 -- ALTER TABLE produto MODIFY COLUMN preco DECIMAL(5,2);
 
-create table medida (
+CREATE TABLE medida (
 	idMedida INT PRIMARY KEY AUTO_INCREMENT,
 	fk_produto INT,
     dht11_umidade DECIMAL(3,2),
@@ -57,7 +77,7 @@ create table medida (
 	FOREIGN KEY (fk_produto) REFERENCES produto(idProduto)
 );
 
-create table pedido (
+CREATE TABLE pedido (
 idPedido INT,
 pk_usuario INT,
 pk_pedido INT,
